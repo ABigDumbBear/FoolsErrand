@@ -1,5 +1,6 @@
 # Gather the source files.
-file(GLOB GAME_SOURCES main.cpp)
+file(GLOB GAME_SOURCES main.cpp
+                       systems/*.cpp)
 
 # Create the executable using the source files.
 add_executable(foolsErrand ${GAME_SOURCES})
@@ -10,7 +11,9 @@ target_link_libraries(foolsErrand PUBLIC
 
 # Include the project and Kuma3D headers.
 target_include_directories(foolsErrand PUBLIC
-                           ${KUMA3D_INCLUDE_DIR})
+                           ${KUMA3D_INCLUDE_DIR}
+                           components
+                           systems)
 
 # Install the executable and the necessary resources.
 install(TARGETS foolsErrand DESTINATION ${INSTALL_DIR})
